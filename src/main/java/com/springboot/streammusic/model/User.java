@@ -25,15 +25,15 @@ public class User {
     @Column(nullable = false)
     private String passwordHash;
 
-    private String proflePicture;
+    private String profilePicture;
 
     @Temporal(TemporalType.DATE)
     private Date createdAt;
 
     private boolean isPremium;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<Playlist> playlists = new HashSet<>();
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+//    private Set<Playlist> playlists = new HashSet<>();
 
     @ManyToMany
     @JoinTable(

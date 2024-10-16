@@ -4,29 +4,33 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
 @Table(name = "PLAYLISTS")
 public class Playlist {
 
-    @EmbeddedId
-    private PlaylistId id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
-    @MapsId("playlistId")
-    @JoinColumn(name = "playlist_id")
-    private Playlist playlist;
+    @JoinColumn(name = "user_playlist_id")
+    private UserPlaylist userPlaylist;
 
-    @ManyToOne
-    @MapsId("songId")
-    @JoinColumn(name = "song_id")
-    private Song song;
+    @ManyToMany
+    @JoinTable(
+            name = "playlist_song", // Tên bảng trung gian
+            joinColumns = @JoinColumn(name = "playlist_id"),
+            inverseJoinColumns = @JoinColumn(name = "song_id")
+    )
+    private List<Song> songs = new ArrayList<>();
 
     private Integer position;
 
     private LocalDateTime addedAt;
-
 
 
 }

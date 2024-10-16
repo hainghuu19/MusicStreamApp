@@ -32,7 +32,7 @@ public class UserPlaylist {
 
         private String coverImage;
 
-        @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL)
-        private Set<Playlist> playlist = new HashSet<>();
+        @OneToMany(mappedBy = "userPlaylist", cascade = CascadeType.ALL)
+        private Set<Playlist> playlists = new HashSet<>();
 
 }

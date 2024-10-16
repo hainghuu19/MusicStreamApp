@@ -42,8 +42,8 @@ public class Song {
     @ManyToMany(mappedBy = "likedSongs")
     private Set<User> likedByUsers = new HashSet<>();
 
-    @OneToMany(mappedBy = "song")
-    private Set<Playlist> playlistSongs = new HashSet<>();
+    @ManyToMany(mappedBy = "songs")
+    private Set<Playlist> playlists = new HashSet<>();
 
 
 }
