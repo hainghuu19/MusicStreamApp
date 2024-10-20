@@ -66,9 +66,17 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.28</version> <!-- Bạn có thể kiểm tra phiên bản mới nhất trên trang Lombok -->
+			<version>1.18.28</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>se.michaelthelin.spotify</groupId>
+			<artifactId>spotify-web-api-java</artifactId>
+			<version>7.3.0</version>
+		</dependency>
+
+
 
 
 
