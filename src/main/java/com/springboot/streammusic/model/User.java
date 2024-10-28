@@ -14,23 +14,23 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer user_id;
 
     @Column(nullable = false, unique = true)
-    private String userName;
+    private String username;
 
     @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
-    private String passwordHash;
+    private String password_hash;
 
-    private String profilePicture;
+    private String profile_picture;
 
     @Temporal(TemporalType.DATE)
-    private Date createdAt;
+    private Date created_at;
 
-    private boolean isPremium;
+    private boolean is_premium;
 
 //    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 //    private Set<Playlist> playlists = new HashSet<>();

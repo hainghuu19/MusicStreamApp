@@ -14,7 +14,7 @@ public class Playlist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long playlist_id;
 
     @ManyToOne
     @JoinColumn(name = "user_playlist_id")
@@ -30,7 +30,7 @@ public class Playlist {
 
     private Integer position;
 
-    private LocalDateTime addedAt;
+    private LocalDateTime added_at;
 
 
 }

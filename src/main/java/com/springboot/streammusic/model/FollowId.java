@@ -9,13 +9,13 @@ import java.util.Objects;
 @Embeddable
 public class FollowId implements Serializable {
 
-    private Long followerId;
-    private Long followingId;
+    private Integer followerId;
+    private Integer followingId;
 
     // Constructors
     public FollowId() {}
 
-    public FollowId(Long followerId, Long followingId) {
+    public FollowId(Integer followerId, Integer followingId) {
         this.followerId = followerId;
         this.followingId = followingId;
     }

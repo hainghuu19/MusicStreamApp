@@ -14,7 +14,7 @@ public class Song {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long song_id;
 
     @Column(nullable = false)
     private String title;
@@ -32,12 +32,12 @@ public class Song {
     @Column(nullable = false)
     private Integer duration;
 
-    private String audioUrl;
+    private String audioFilePath;
 
-    private Integer playCount = 0;
+    private Integer play_count = 0;
 
     @Temporal(TemporalType.DATE)
-    private Date releaseDate;
+    private Date release_date;
 
     @ManyToMany(mappedBy = "likedSongs")
     private Set<User> likedByUsers = new HashSet<>();
@@ -45,5 +45,47 @@ public class Song {
     @ManyToMany(mappedBy = "songs")
     private Set<Playlist> playlists = new HashSet<>();
 
+    public Long getId() {
+        return song_id;
+    }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public Artist getArtist() {
+        return artist;
+    }
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public String getAudioFilePath() {
+        return audioFilePath;
+    }
+
+    public Integer getPlayCount() {
+        return play_count;
+    }
+
+    public Date getReleaseDate() {
+        return release_date;
+    }
+
+    public Set<User> getLikedByUsers() {
+        return likedByUsers;
+    }
+
+    public Set<Playlist> getPlaylists() {
+        return playlists;
+    }
 }

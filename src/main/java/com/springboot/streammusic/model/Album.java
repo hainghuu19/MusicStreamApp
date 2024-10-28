@@ -14,7 +14,7 @@ public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer album_id;
 
     @Column(nullable = false)
     private String title;
@@ -26,7 +26,7 @@ public class Album {
     @Temporal(TemporalType.DATE)
     private Date releaseDate;
 
-    private String coverImg;
+    private String cover_image;
 
     @Column(columnDefinition = "TEXT")
     private String description;

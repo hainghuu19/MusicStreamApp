@@ -8,8 +8,8 @@ import java.util.Objects;
 @Data
 @Embeddable
 public class UserLikedSongId {
-    private Long userId;
-    private Long songId;
+    private Integer userId;
+    private Integer songId;
 
     // equals() and hashCode() methods
     @Override

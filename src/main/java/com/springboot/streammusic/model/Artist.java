@@ -14,7 +14,7 @@ public class Artist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer artist_id;
 
     @Column(nullable = false)
     private String name;
@@ -23,10 +23,10 @@ public class Artist {
     private String bio;
 
 
-    private String profilePicture;
+    private String profile_picture;
 
     @Temporal(TemporalType.DATE)
-    private Date createdAt;
+    private Date created_at;
 
     @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
     private Set<Song> songs = new HashSet<>();
