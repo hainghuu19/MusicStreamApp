@@ -16,7 +16,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer user_id;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "user_name", unique = true)
     private String username;
 
     @Column(nullable = false, unique = true)
@@ -43,6 +43,8 @@ public class User {
     )
     private Set<Song> likedSongs = new HashSet<>();
 
+
+
     @ManyToMany
     @JoinTable(
             name = "FOLLOWS",
@@ -51,6 +53,39 @@ public class User {
     )
     private Set<User> following = new HashSet<>();
 
+
     @ManyToMany(mappedBy = "following")
     private Set<User> followers = new HashSet<>();
+
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword_hash() {
+        return password_hash;
+    }
+
+    public void setPassword_hash(String password_hash) {
+        this.password_hash = password_hash;
+    }
 }
