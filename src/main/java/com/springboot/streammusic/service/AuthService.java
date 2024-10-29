@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 
 @Service
 public class AuthService {
@@ -20,7 +22,10 @@ public class AuthService {
     private JwtUtil jwtUtil;
 
     public String loginUser(String username, String password) {
-        User user = userRepository.findByUsername(username);
+        Optional<User> optionalUser = userRepository.findByUsername(username);
+
+        User user = optionalUser.orElseThrow(() -> new RuntimeException("User not found"));
+
         if (user == null || !passwordEncoder.matches(password, user.getPassword_hash())) {
             throw new RuntimeException("Invalid credentials");
         }
