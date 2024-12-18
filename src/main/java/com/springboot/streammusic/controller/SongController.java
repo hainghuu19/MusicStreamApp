@@ -21,7 +21,7 @@ public class SongController {
     @Autowired
     private SongService songService;
 
-    @GetMapping
+    @GetMapping("/get-all-songs")
     public List<Song> getAllSongs(){
         return songService.getAllSong();
     }
@@ -42,6 +42,12 @@ public class SongController {
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }
+    }
+
+    @GetMapping("/get-favorite-songs/{userId}")
+    public ResponseEntity<List<Song>> getUserFavoriteSongs(@PathVariable int userId){
+        List<Song> favoriteSongs = songService.getFavoriteSongByUserId(userId);
+        return ResponseEntity.ok(favoriteSongs);
     }
 
 

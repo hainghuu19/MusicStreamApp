@@ -18,11 +18,26 @@ public class UserLikedSong {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne
+    @ManyToOne  // before ManyToOne
     @MapsId("songId")
     @JoinColumn(name = "song_id")
     private Song song;
 
     private LocalDateTime likedAt;
 
+    public Song getSong(){
+        return song;
+    }
+
+    public UserLikedSongId getId() {
+        return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public LocalDateTime getLikedAt() {
+        return likedAt;
+    }
 }
