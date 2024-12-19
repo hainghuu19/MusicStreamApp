@@ -35,4 +35,7 @@ public class Artist {
     private Set<Album> albums = new HashSet<>();
 
 
+    public String getName() {
+        return name;
+    }
 }

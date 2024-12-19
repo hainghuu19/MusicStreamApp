@@ -1,7 +1,10 @@
 package com.springboot.streammusic.service;
 
+import com.springboot.streammusic.model.Album;
+import com.springboot.streammusic.model.Playlist;
 import com.springboot.streammusic.model.Song;
 import com.springboot.streammusic.model.UserLikedSong;
+import com.springboot.streammusic.repository.AlbumRepository;
 import com.springboot.streammusic.repository.SongRepository;
 import com.springboot.streammusic.repository.UserFavoriteSongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,8 @@ public class SongService {
     private SongRepository songRepository;
     @Autowired
     private UserFavoriteSongRepository userFavoriteSongRepository;
+    @Autowired
+    private AlbumRepository albumRepository;
 
     public List<Song> getAllSong(){
         return songRepository.findAll();
@@ -35,5 +40,9 @@ public class SongService {
         List<UserLikedSong> userFavoriteSongRepositories = userFavoriteSongRepository.findByUserId(userId);
         return userFavoriteSongRepositories.stream().map(UserLikedSong::getSong)
                 .collect(Collectors.toList());
+    }
+
+    public List<Album> getAllAlbum(){
+        return albumRepository.findAll();
     }
 }

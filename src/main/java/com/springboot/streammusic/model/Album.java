@@ -35,4 +35,19 @@ public class Album {
     private Set<Song> songs = new HashSet<>();
 
 
+    public Integer getAlbum_id() {
+        return album_id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Artist getArtist() {
+        return artist;
+    }
+
+    public Date getReleaseDate() {
+        return releaseDate;
+    }
 }

@@ -1,6 +1,9 @@
 package com.springboot.streammusic.controller;
 
 
+import com.springboot.streammusic.model.Album;
+import com.springboot.streammusic.model.DTO.SongDTO;
+import com.springboot.streammusic.model.DTO.SongMapper;
 import com.springboot.streammusic.model.Song;
 import com.springboot.streammusic.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +23,18 @@ public class SongController {
 
     @Autowired
     private SongService songService;
+    @Autowired
+    private SongMapper songMapper;
 
-    @GetMapping("/get-all-songs")
-    public List<Song> getAllSongs(){
-        return songService.getAllSong();
-    }
+//    @GetMapping("/get-all-songs")
+//    public List<Song> getAllSongs(){
+//        return songService.getAllSong();
+//    }
+@GetMapping("/get-all-songs")
+public ResponseEntity<List<SongDTO>> getAllSongs() {
+    List<Song> songs = songService.getAllSong();
+    return ResponseEntity.ok(songMapper.toDTOList(songs));
+}
 
     @GetMapping("/play/{id}")
     public ResponseEntity<byte[]> playSong(@PathVariable Long id) {
@@ -48,6 +58,11 @@ public class SongController {
     public ResponseEntity<List<Song>> getUserFavoriteSongs(@PathVariable int userId){
         List<Song> favoriteSongs = songService.getFavoriteSongByUserId(userId);
         return ResponseEntity.ok(favoriteSongs);
+    }
+
+    @GetMapping("get-album")
+    public List<Album> getAllAlbum(){
+        return songService.getAllAlbum();
     }
 
 

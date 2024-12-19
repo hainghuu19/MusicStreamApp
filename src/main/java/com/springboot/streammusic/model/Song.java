@@ -45,6 +45,18 @@ public class Song {
     @ManyToMany(mappedBy = "songs")
     private Set<Playlist> playlists = new HashSet<>();
 
+    public Long getSong_id() {
+        return song_id;
+    }
+
+    public Integer getPlay_count() {
+        return play_count;
+    }
+
+    public Date getRelease_date() {
+        return release_date;
+    }
+
     public Long getId() {
         return song_id;
     }
